@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: homeassistant/home-assistant
   # -- image tag
-  tag: "2021.10"
+  tag: "2021.12"
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -34,10 +34,10 @@ ingress:
     enabled: false
 
 # -- Enable devices to be discoverable
-# hostNetwork: true
+hostNetwork: true
 
 # -- When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
-# dnsPolicy: ClusterFirstWithHostNet
+dnsPolicy: ClusterFirstWithHostNet
 
 securityContext:
   # -- (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine
@@ -49,7 +49,7 @@ persistence:
   config:
     enabled: true
     type: hostPath
-    hostPath: /home/ubuntu/charts/home-assistant/config
+    hostPath: /home/ubuntu/home-assistant/config
     mountPath: /config
 
   # -- Configure a hostPathMount to mount a USB device in the container.
